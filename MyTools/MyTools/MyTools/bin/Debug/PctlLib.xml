@@ -1,0 +1,763 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+PctlLib
+</name>
+</assembly>
+<members>
+<member name="M:PctlLib.MdiDB.ShowMDIChild20121203(System.Windows.Forms.Form,System.Windows.Forms.Form,System.String)">
+	<summary>
+ Show a child form in a parent form. Child form size can adjust in form load events.
+ </summary>
+	<param name="mDIParentForm"></param>
+	<param name="childForm"></param>
+	<param name="message"></param>
+	<remarks></remarks>
+</member><member name="M:PctlLib.FileAndDirectoryDB.GetFilePath">
+	<summary>
+ use a open filedialog to get a file full path. If return "", means not find the file
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.Pmath.Field2DateTableFieldToClass(System.Object)">
+	<summary>
+ Date type value from SQL table field/data reader/data table/datagridview date cell,
+ either equal to a date or isdbnull.
+ </summary>
+	<param name="input">can be SQL table field/data reader/data table/datagridview date cell</param>
+	<returns>a correct date or 12:00:00: AM</returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.Pmath.StringToTitleCase(System.String)">
+	<summary>
+ Convert one word string frist letter to upper letter, all others to lower letter no matter its origning is lower or upper
+ </summary>
+	<param name="value">input is a string value, can be empty, no trim empty string </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.SqlDB.GetOneRowReaderBySqlCommand(System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlConnection)">
+	<summary>
+ Return a one row oReader,if error, return nothing
+ </summary>
+	<param name="myCommand"></param>
+	<param name="conn"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.SqlDB.ReturnExecuteScalar(System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlConnection)">
+	<summary>
+ input a sql command, with parameter or not, return a scaler object, can be number or string, need later type. Command disposed after this.
+ </summary>
+	<param name="myCommand">sql command with commandtext and parameter or not</param>
+	<param name="conn"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.SqlDB.SaveUpdateTransactionByCommand(System.Data.SqlClient.SqlCommand,System.Int32,System.String,System.Data.SqlClient.SqlConnection)">
+	<summary>
+ u20111128 use for sql server table insert and update with transaction
+ </summary>
+	<param name="myCommand">the command, can with parameter</param>
+	<param name="count">the expect affective row count</param>
+	<param name="strError">if in error, show this error message</param>
+	<param name="conn">sql connection</param>
+	<returns>return true or false</returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.SqlDB.SaveUpdateTransactionByCommandNotCount(System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlConnection)">
+	<summary>
+ u20111128 use for sql server table insert and update or delete with transaction, will not count affect row
+ </summary>
+	<param name="myCommand">the command, can with parameter</param>
+	<param name="conn">sql connection</param>
+	<returns>return true or false</returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.SqlDB.SaveUpdateTransactionByCommandWithOpenConn(System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlConnection,System.Boolean,System.Int32)">
+	<summary>
+ Conduct a SQL command with transaction
+ </summary>
+	<param name="myCommand"></param>
+	<param name="conn"></param>
+	<param name="countAffectedRow">if return affected row</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.SqlDB.SaveUpdateTransactionByCommandCountHasAffectedRow(System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlConnection)">
+	<summary>
+ u20111128 insert/update/delete with transaction, no affected row return false
+ </summary>
+	<param name="myCommand">the command, can with parameter</param>
+	<param name="conn">sql connection</param>
+	<returns>return true or false</returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.SqlDB.LoadDataGridViewBySqlCommand(System.Windows.Forms.DataGridView,System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlConnection)">
+	<summary>
+ fill a datagridview by a SQL command, allow return an empty datagridview
+ </summary>
+	<param name="dgv1">a datagridview which data will displayed</param>
+	<param name="myCommand">a SQL command, can add parameters</param>
+	<param name="conn">a SQL connection</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.SqlDB.LoadDgvBySqlCommandAndUnCloseConnection(System.Windows.Forms.DataGridView,System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlConnection)">
+	<summary>
+ Load a datagridview by a command,this command related connection does not close after this
+ load. this is a speed load. the connection will be close by other place
+ </summary>
+	<param name="dgv1"></param>
+	<param name="myCommand"></param>
+	<param name="conn"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.SqlDB.LoadDataTableBySqlCommand(System.Data.DataTable,System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlConnection)">
+	<summary>
+ fill a datatable by a SQL command, allow return an empty datatable
+ </summary>
+	<param name="myDataTable">a datatable</param>
+	<param name="myCommand">a SQL command, can add parameters</param>
+	<param name="conn">a SQL connection</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.SqlDB.LoadDataGridViewByOledbCommand(System.Windows.Forms.DataGridView,System.Data.OleDb.OleDbCommand,System.Data.OleDb.OleDbConnection)">
+	<summary>
+ Fill DataGridView By an Oledb Command, can add parameter in command 
+ </summary>
+	<param name="dgv1">a DataGridView</param>
+	<param name="OleDbCommand">an Oledb Command</param>
+	<param name="OleDbConn">an Oledb connection</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.SqlDB.LoadDataTableByOledbCommand(System.Data.DataTable,System.Data.OleDb.OleDbCommand,System.Data.OleDb.OleDbConnection)">
+	<summary>
+ Fill a data table By an Oledb Command, can add parameter in command 
+ </summary>
+	<param name="myDataTable">a data table</param>
+	<param name="OleDbCommand">an Oledb Command</param>
+	<param name="OleDbConn">an Oledb connection</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.SqlDB.ReturnExecuteScalarOledb(System.Data.OleDb.OleDbCommand,System.Data.OleDb.OleDbConnection)">
+	<summary>
+ input a Oledb command, with parameter or not, return a scaler object, can be number or string, need later type
+ </summary>
+	<param name="myCommand">sql command with commandtext and parameter or not</param>
+	<param name="conn"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.FolderDB.GetUserTempFolderGuid">
+	<summary>
+ Create a temperate folder at current user temp folder+GUID string. This folder is almost unique
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.InventoryDB.Is000(System.String,System.String,System.Data.SqlClient.SqlConnection)">
+	<summary>
+ ExecuteScalar, return true/false,select/insert/update/delete
+ </summary>
+	<param name="strSql">a sql string, can be select string or insert/update/delete string</param>
+	<param name="strError">error message</param>
+	<param name="conn">a sql connection</param>
+	<returns>True/false</returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.InventoryDB.Is000ByCommand(System.String,System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlConnection)">
+	<summary>
+ gerneal sql command, no restriction. return true/false,select/insert/update/delete
+ </summary>
+	<param name="strSql"></param>
+	<param name="myCommand">sql command, can include parameter</param>
+	<param name="conn"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.InventoryDB.Is001(System.String,System.Data.SqlClient.SqlConnection)">
+	<summary>
+ select command,select an integar, &gt;0 return true, else return false
+ </summary>
+	<param name="strSql"></param>
+	<param name="conn"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.InventoryDB.Is002NonTransInsOrUpdate(System.String,System.Int32,System.Data.SqlClient.SqlConnection)">
+	<summary>
+ Sql update/insert/delete. no roll back. test affected rows
+ </summary>
+	<param name="strSql">Sql command string</param>
+	<param name="count">expected affected rows</param>
+	<param name="conn">Sql connection</param>
+	<returns>True/False</returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.InventoryDB.Get003String(System.String,System.Data.SqlClient.SqlConnection)">
+	<summary>
+ Sql select. return string. on error return ""
+ </summary>
+	<param name="strSql"></param>
+	<param name="conn"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.InventoryDB.Get004Integer(System.String,System.Data.SqlClient.SqlConnection)">
+	<summary>
+ Sql select. return integar. on error return 0
+ </summary>
+	<param name="strSql"></param>
+	<param name="conn"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.InventoryDB.SaveUpdateTransactionByCommand(System.String,System.Data.SqlClient.SqlCommand,System.Int32,System.String,System.Data.SqlClient.SqlConnection)">
+	<summary>
+ use for sql server table insert and update with transaction
+ </summary>
+	<param name="strSql">the command text</param>
+	<param name="myCommand">the command, can with parameter</param>
+	<param name="count">the expect affective row count</param>
+	<param name="strError">if in error, show this error message</param>
+	<param name="conn">command connection</param>
+	<returns>return true or false</returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.SysRefDB.IsConfirmDelete(System.String,System.String)">
+	<summary>
+ show dialogue for confirm before delete or remove something
+ </summary>
+	<param name="strmsg">message to show in the dialogue</param>
+	<param name="strtitle">short message in dialogue form title</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.SysRefDB.ShortCut(System.String,System.String,System.String)">
+	<summary>
+ click one application short cut
+ </summary>
+	<param name="publisherName">this application publisherName at Publish&gt;Options</param>
+	<param name="productName">this application productName at Publish&gt;Options</param>
+	<param name="shortcutName">shortcut Name on desktop</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.SysRefDB.CreateShortCut(System.String,System.String,System.String,System.String,System.String,System.Int32)">
+	<summary>
+	</summary>
+	<param name="shortcutName"></param>
+	<param name="creationDir"></param>
+	<param name="targetFullpath"></param>
+	<param name="workingDir"></param>
+	<param name="iconFile"></param>
+	<param name="iconNumber"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.SysRefDB.BackupFile(System.String,System.String)">
+	<summary>
+ v2011-11-29 backup a file to a customer seleced location. will show a FolderBrowserDialog for user to decide the backup to location
+ </summary>
+	<param name="strFrom">original file path</param>
+	<param name="strFileName">original file name</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.ComboBoxDB.GloadComboBoxSql(System.Windows.Forms.ComboBox,System.String,System.String,System.String,System.Boolean,System.Data.SqlClient.SqlConnection)">
+	<summary>
+ generic Sql combobox load. option to add autocomplete 
+ </summary>
+	<param name="cbo1">combo box</param>
+	<param name="strSql">Sql select</param>
+	<param name="strValueField">the field name in database which will be used as combo box valued key. combo.selectedvalue</param>
+	<param name="strDisplayField">the field name in database which will be used as combo box display. combo.member</param>
+	<param name="isUseSelectedValue">option to add autocomplete or not</param>
+	<param name="conn"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.ComboBoxDB.GloadComboBoxSqlCommand(System.Windows.Forms.ComboBox,System.Data.SqlClient.SqlCommand,System.String,System.String,System.Boolean,System.Data.SqlClient.SqlConnection)">
+	<summary>
+ generic Sql combobox load. option to add autocomplete with a command
+ </summary>
+	<param name="cbo1"></param>
+	<param name="myCommand"></param>
+	<param name="strValueField"></param>
+	<param name="strDisplayField"></param>
+	<param name="isUseSelectedValue"></param>
+	<param name="conn"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.ComboBoxDB.AddDateSelectCombox(System.Windows.Forms.ComboBox)">
+	<summary>
+ set a combo box with common date, year value
+ </summary>
+	<param name="cbo1"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.ComboBoxDB.AddStringListToCombox(System.Windows.Forms.ComboBox,System.String[])">
+	<summary>
+ v2011-11-29:Append general string value to a combo box with valued key 1,2...n
+ </summary>
+	<param name="cbo1">a combo box</param>
+	<param name="list1">a string(),str(n), n+1 is the str.length. sample code: dim str(3) as string, str(0)="aaa"..., combo box value key will auto add to 1,2,3...</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.ComboBoxDB.GautoCompleteStringCollection(System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlConnection)">
+	<summary>
+ return a AutoCompleteStringCollection, use for textbox,combo box auto complete
+ </summary>
+	<param name="myCommand">a Sql command,with command text and parameter</param>
+	<param name="conn">a Sql connection</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.ComboBoxDB.ReplaceCombobox(System.Windows.Forms.ComboBox,System.Windows.Forms.TextBox)">
+	<summary>
+ for Combobox type control, the disable back color is hard to read, use a text box to simulate Combobox disable content
+ set a spare textbox, this textbox.text=Combobox.text,textbox.visible=not Combobox.visible
+ </summary>
+	<param name="cmb1"></param>
+	<param name="text1"></param>
+	<remarks></remarks>
+</member><member name="M:PctlLib.ExcelDB.LoadExcleFileToDatatable(System.String,System.String)">
+	<summary>
+ Load an Excel file to a datatable. excleFilePath is a fule file name, ended with .xls or .xlsx
+ </summary>
+	<param name="excleFilePath"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.AccessDB.GetDgvAccess(System.Windows.Forms.DataGridView,System.String,System.Data.OleDb.OleDbConnection)">
+	<summary>
+ Fill a datagridview with oledb select command string and connection
+ </summary>
+	<param name="dgv1"></param>
+	<param name="strSql"></param>
+	<param name="conn"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.AccessDB.GetDgvAccessByCommand(System.Windows.Forms.DataGridView,System.Data.OleDb.OleDbCommand,System.Data.OleDb.OleDbConnection)">
+	<summary>
+ Fill a datagridview with oledb select command
+ </summary>
+	<param name="dgv1"></param>
+	<param name="myCommand"></param>
+	<param name="conn"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.AccessDB.GetDataTableAccess(System.Data.DataTable,System.String,System.Data.OleDb.OleDbConnection)">
+	<summary>
+ Fill a DataTable with oledb select command string and connection
+ </summary>
+	<param name="myDataTable"></param>
+	<param name="strSql"></param>
+	<param name="conn"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.AccessDB.GetDataTableAccessByOnConn(System.Data.DataTable,System.String,System.Data.OleDb.OleDbConnection)">
+	<summary>
+ Fill a DataTable with oledb select command string and connection. this ole connection already opened
+ </summary>
+	<param name="myDataTable"></param>
+	<param name="strSql"></param>
+	<param name="conn"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.AccessDB.GautoCompleteStringCollection(System.Data.OleDb.OleDbCommand,System.Data.OleDb.OleDbConnection)">
+	<summary>
+ get a AutoCompleteStringCollection for textbox and combo box with a olddb command and connection
+ </summary>
+	<param name="myCommand"></param>
+	<param name="conn"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.AccessDB.InsertUpdateCommand(System.Data.OleDb.OleDbCommand,System.Data.OleDb.OleDbConnection)">
+	<summary>
+ olddb insert/update/delete, no roll back
+ </summary>
+	<param name="myOldDBCommand">olddb command,with command text and parameters</param>
+	<param name="myConnection">olddb Connection</param>
+	<returns>True/False</returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.StringDB.GetSQLInString(System.Collections.Generic.List{System.String})">
+	<summary>
+ In SQL select where IN Clause, this string is after in, will add couple, between them. must add '(' in front and add ')' after
+ </summary>
+	<param name="list1">each string in a list</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.StringDB.GetSQLInInteger(System.Collections.Generic.List{System.Int32})">
+	<summary>
+ In SQL select where IN, this string is after in without ()
+ </summary>
+	<param name="list1">each integer in a list</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DgvDB.DeleteOneLine(System.Windows.Forms.DataGridView)">
+	<summary>
+ delete dgv current selected row. if dgv is databind, may have exception
+ </summary>
+	<param name="dgv1"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DgvDB.DgvLocateCurrentRowByString(System.String,System.String,System.Windows.Forms.DataGridView)">
+	<summary>
+ 'use String ID to find a record in dgv,
+ </summary>
+	<param name="cellName"></param>
+	<param name="cellValue"></param>
+	<param name="dgv1"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DgvDB.DgvLocateCurrentRow(System.String,System.Int32,System.Windows.Forms.DataGridView)">
+	<summary>
+ use integer ID to find a record in dgv,
+ </summary>
+	<param name="cellName"></param>
+	<param name="cellValue"></param>
+	<param name="dgv1"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DgvDB.DgvLocateCurrentRowByMaxAutokey(System.String,System.Windows.Forms.DataGridView)">
+	<summary>
+  find max autokey row which is the latest record
+ </summary>
+	<param name="strCellName"></param>
+	<param name="dgv1"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DgvDB.FindByString(System.String,System.Windows.Forms.DataGridView,System.String)">
+	<summary>
+ 'use string ID to find a record in dgv, can partly start string.
+ </summary>
+	<param name="filter"></param>
+	<param name="dgv1"></param>
+	<param name="strColName"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DgvDB.DuplicateString(System.Windows.Forms.DataGridView,System.String)">
+	<summary>
+ Test a datagridview string column, if there is duplicated value, return True, and that row is highlighted; if no duplicated, return false; if error found, return true to stop the process
+ </summary>
+	<param name="dgv1"></param>
+	<param name="strColName"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DgvDB.DuplicateString01(System.Windows.Forms.DataGridView,System.String,System.String)">
+	<summary>
+ test a dgv, if a string value already exists in this dgv string column; existed or error found will return true, otherwise return false
+ </summary>
+	<param name="dgv1"></param>
+	<param name="strColName"></param>
+	<param name="testValue"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DgvDB.InitDataGridView002(System.Windows.Forms.DataGridView)">
+	<summary>
+ v2011.11.28 initialize a datagridview, different type columns pre set different width
+ </summary>
+	<param name="dgv1">a datagridview</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DgvDB.SetColumnWidth(System.Windows.Forms.DataGridView)">
+	<summary>
+ Set dgv common data type column width
+ </summary>
+	<param name="dgv1"></param>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DgvDB.MasterDetailByStringId(System.Windows.Forms.DataGridView,System.Windows.Forms.DataGridView,System.String,System.String,System.Data.SqlClient.SqlParameter[],System.Data.SqlClient.SqlParameter[],System.String,System.String,System.Windows.Forms.BindingSource,System.Windows.Forms.BindingSource,System.Data.SqlClient.SqlConnection)">
+	<summary>
+ Master-Detail, prefer use MasterDetailByCommand
+ </summary>
+	<param name="dgvMaster"></param>
+	<param name="dgvDetail"></param>
+	<param name="strSqlMaster"></param>
+	<param name="strSqlDetail"></param>
+	<param name="parms1"></param>
+	<param name="parms2"></param>
+	<param name="strParentId"></param>
+	<param name="strChildId"></param>
+	<param name="bindingSource1"></param>
+	<param name="bindingSource2"></param>
+	<param name="conn"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DgvDB.MasterDetailByCommand(System.Windows.Forms.DataGridView,System.Windows.Forms.DataGridView,System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlCommand,System.String,System.String,System.Windows.Forms.BindingSource,System.Windows.Forms.BindingSource,System.Data.SqlClient.SqlConnection)">
+	<summary>
+ Fill Master-Detail with sql command and sql connection
+ </summary>
+	<param name="dgvMaster">master datagridview</param>
+	<param name="dgvDetail">detail datagridview</param>
+	<param name="myCmdMaster">sql select to fill master datagridview</param>
+	<param name="myCmdDetail">sql select to fill detail datagridview</param>
+	<param name="strMasterLinkId">Master link id to detail</param>
+	<param name="strDetailLinkId">Master link id to detail</param>
+	<param name="bindingSource1"></param>
+	<param name="bindingSource2"></param>
+	<param name="conn"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DgvDB.Master2DetailByCommand(System.Windows.Forms.DataGridView,System.Windows.Forms.DataGridView,System.Windows.Forms.DataGridView,System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlCommand,System.String,System.String,System.String,System.Windows.Forms.BindingSource,System.Windows.Forms.BindingSource,System.Windows.Forms.BindingSource,System.Data.SqlClient.SqlConnection)">
+	<summary>
+ Fill one master,2 detail datagridview by sql command
+ </summary>
+	<param name="dgvM">master datagridview</param>
+	<param name="dgvD1">first detail datagridview</param>
+	<param name="dgvD2">second detail datagridview</param>
+	<param name="cmd">fill master dgv command</param>
+	<param name="cmd1">fill first detail command</param>
+	<param name="cmd2">fill second detail command</param>
+	<param name="strParentId"></param>
+	<param name="strChildId"></param>
+	<param name="strSecondChildId"></param>
+	<param name="bindingSource1"></param>
+	<param name="bindingSource2"></param>
+	<param name="bindingSource3"></param>
+	<param name="conn"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DgvDB.DgvToDS(System.Windows.Forms.DataGridView,System.Data.DataSet@)">
+	<summary>
+	</summary>
+	<param name="dgv1"></param>
+	<param name="ds"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:PctlLib.ReportDB.TxtTopDesc3">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:PctlLib.ReportDB">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="M:PctlLib.EmailDB.EmailAddressCheck(System.String)">
+	<summary>
+ validate if an email address is correct
+ </summary>
+	<param name="emailAddress"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.HtmlDB.GetHtmlStringFromDatatable(System.Data.DataTable)">
+	<summary>
+ convert from a datatable to a html table
+ </summary>
+	<param name="dt1">a datatable which content will be convert</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DateTimeDB.ToMonthWithTwoLetters(System.DateTime)">
+	<summary>
+ get a string month like 01,02...12
+ </summary>
+	<param name="mydate"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DateTimeDB.ToDayInMonthWithTwoLetters(System.DateTime)">
+	<summary>
+ get a string day with 2 letters, like 01,02,....30,31
+ </summary>
+	<param name="mydate"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DateTimeDB.ToYearWithFourLetters(System.DateTime)">
+	<summary>
+  get year string, 4 bit, like 2011
+ </summary>
+	<param name="mydate"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DateTimeDB.ToHourWithTwoLetters(System.DateTime)">
+	<summary>
+  get hour string, 2 bit, like 15
+ </summary>
+	<param name="mydate"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DateTimeDB.ToMinuteWithTwoLetters(System.DateTime)">
+	<summary>
+ return two letters minute string. exp: 1m =01m
+ </summary>
+	<param name="mydate"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DateTimeDB.ToSecondWithTwoLetters(System.DateTime)">
+	<summary>
+ return two letters second string. exp: 1s =01s
+ </summary>
+	<param name="mydate"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DateTimeDB.ToYearMonthDate01(System.DateTime)">
+	<summary>
+ return YYYY-MM-DD, if month or day small then 10, will add 0 before it, like 08=august
+ </summary>
+	<param name="mydate"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DateTimeDB.ToMonthDateYear(System.DateTime)">
+	<summary>
+ Get a date string like MMDDYYYY
+ </summary>
+	<param name="mydate">input date</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DateTimeDB.ToDateMonthYear(System.DateTime)">
+	<summary>
+ get year string DDMMYYYY
+ </summary>
+	<param name="mydate"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DateTimeDB.GetFirstDateOftheWeek(System.DateTime)">
+	<summary>
+ first day of this week
+ </summary>
+	<param name="myDate"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DateTimeDB.GetFirstDateoftheMonth(System.DateTime)">
+	<summary>
+ first day of this month
+ </summary>
+	<param name="myDate"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DateTimeDB.GetFirstDateoftheSeason(System.DateTime)">
+	<summary>
+ first day of this season
+ </summary>
+	<param name="myDate"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DateTimeDB.GetFirstDateoftheYear(System.DateTime)">
+	<summary>
+ first day of the year
+ </summary>
+	<param name="myDate"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DateTimeDB.GetLastDateoftheWeek(System.DateTime)">
+	<summary>
+ last day of the week
+ </summary>
+	<param name="myDate"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DateTimeDB.GetLastDateoftheMonth(System.DateTime)">
+	<summary>
+ last day of the month
+ </summary>
+	<param name="myDate"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DateTimeDB.GetLastDateoftheSeason(System.DateTime)">
+	<summary>
+ last day of the season
+ </summary>
+	<param name="myDate"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DateTimeDB.GetLastDateoftheYear(System.DateTime)">
+	<summary>
+ get last day of the year in input date
+ </summary>
+	<param name="myDate"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DateTimeDB.GetMonthStringWith2Digits(System.DateTime)">
+	<summary>
+  get month string with two digits. for ex. August=08
+ </summary>
+	<param name="mydate"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DateTimeDB.GetDayStringWith2Digits(System.DateTime)">
+	<summary>
+  get date string with 2 digits. exp: 1=01
+ </summary>
+	<param name="mydate"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DateTimeDB.GetStartEndString(System.DateTime,System.DateTime)">
+	<summary>
+ get a string from the start date to end date. exp: mydate&gt;='2/1/2012' AND mydate less than "5/1/2012"
+ </summary>
+	<param name="startDate"></param>
+	<param name="endDate"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DateTimeDB.GetThisYearString">
+	<summary>
+ from day one of this year to today
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DateTimeDB.GetThisMonthString">
+	<summary>
+ From day one of this month to today
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DateTimeDB.GetThisWeekString">
+	<summary>
+ from day one of this week to today
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DateTimeDB.GetTodayString">
+	<summary>
+ From 12:00 AM to now
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.DateTimeDB.GetYearMonthDate(System.DateTime)">
+	<summary>
+ Return YYYYMMDD, month and day are two letters
+ </summary>
+	<param name="mydate"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.PhoneDB.FormatPhone1(System.String)">
+	<summary>
+ Format a phone number to pattern 222-3333-5656
+ </summary>
+	<param name="phoneNumber"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.PhoneDB.IsPhonePattern1(System.String)">
+	<summary>
+ Phone pattern is 222-3333-5656, US and Canada phone format
+ </summary>
+	<param name="phoneNumber"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.PhoneDB.RemoveNonDigit(System.String)">
+	<summary>
+ remove all non digit characters in a phone number
+ use only digit phone number to compare
+ </summary>
+	<param name="phoneNumber"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.AddressDB.GetCountries(System.Windows.Forms.ComboBox)">
+	<summary>
+ Get a country list. Top 5 are ofen used country and region name. Already use autocomplete
+ </summary>
+	<param name="cbo1"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.TextboxDB.IsValidData2012(System.Windows.Forms.TextBox,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String)">
+	<summary>
+ test empty,not numeric,negative,zero;error message provide by user
+ </summary>
+	<param name="txt1"></param>
+	<param name="isAllowEmpty"></param>
+	<param name="isAllowDigit"></param>
+	<param name="isAllowNeg"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PctlLib.TextboxDB.IsValidDate(System.Windows.Forms.TextBox,System.Boolean)">
+	<summary>
+ test a text box, if the string in this box is a valid date
+ </summary>
+	<param name="txt1"></param>
+	<param name="isAllowEmpty">=True, allow empty;=false, not allow empty</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:PctlLib.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:PctlLib.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:PctlLib.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>

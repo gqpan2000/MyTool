@@ -1,0 +1,417 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+MyDll
+</name>
+</assembly>
+<members>
+<member name="T:MyDll.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:MyDll.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:MyDll.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="M:MyDll.AddressDB.GetAddressBlock(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+ <summary>
+ 2014-09-29:input object canbe datacell value, will convert to string;
+ empty country not list;
+ company,attention,address1,address2,address3 empty text not list,duplicate text not list
+ </summary>
+ <param name="company"></param>
+ <param name="attention"></param>
+ <param name="address1"></param>
+ <param name="address2"></param>
+ <param name="address3"></param>
+ <param name="city"></param>
+ <param name="state"></param>
+ <param name="zipCode"></param>
+ <param name="country"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.DataTableDB.InsertDatatable(System.Data.SqlClient.SqlCommand,System.Data.DataTable,System.String@,System.Boolean)">
+ <summary>
+ 2017-08-31:用于所有trans or single command . 判断total para less thanSQL 2100 limit, use batch insert，如果大于，分成multiple small datatable to add
+ </summary>
+ <param name="myCommand"></param>
+ <param name="dt1"></param>
+ <param name="useSmallTable">是否使用小datatable分拆这个大table</param>
+ <param name="errorMsg"></param>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.DataTableDB._BuildCmdString(System.Data.DataTable,System.String,System.Data.DataTable)">
+ <summary>
+ Build a insert string by a datatable
+ </summary>
+ <param name="dt1">this datatable hold the data need insert to database</param>
+ <param name="tableName">Table name in database. may or may not same to datatable, so need specify here</param>
+ <param name="dtInsAbleCols">Database table all insert able column names, exclude identity column and calculate column</param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.DataTableDB._BuildCmdPara(System.Data.SqlClient.SqlCommand,System.Data.DataTable,System.Data.DataTable)">
+ <summary>
+ build command parameteres by a datatable
+ </summary>
+ <param name="myCommand"></param>
+ <param name="dt1">table holds all data to append to command parameter</param>
+ <param name="dtInsAbleCols">all insert able columns</param>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.DataTableDB._InsertDatatableWithSameCommand(System.Data.SqlClient.SqlCommand,System.Data.DataTable,System.String,System.Data.DataTable)">
+ <summary>
+ 使用same command，多用于trans
+ </summary>
+ <param name="myCommand"></param>
+ <param name="dt1"></param>
+ <param name="tableName"></param>
+ <param name="dtInsAbleCols"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.DataTableDB._InsertDatatableWithNewCommand(System.Data.DataTable,System.String,System.Data.DataTable,System.String@)">
+ <summary>
+ 已经知道total para less thanSQL 2100 limit, use batch insert
+ </summary>
+ <param name="oConn"></param>
+ <param name="dt1"></param>
+ <param name="tableName">Tablename is the SQL DB table name. may same or may not same to dt1 name</param>
+ <param name="errorMsg"></param>
+ <param name="dtInsAbleCols">this table insert table column, provide in parent step</param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.EmailDB.SendSmtpSSLEmail(System.Net.Mail.MailMessage,System.String)">
+ <summary>
+ use leapers do-not-reply account
+ </summary>
+ <param name="msgMail"></param>
+ <param name="errorMsg"></param>
+</member>
+<member name="M:MyDll.HtmlDB.FindNextTagValueText(System.String,System.String,System.String,System.String)">
+ <summary>
+ 
+ </summary>
+ <param name="htmlText"></param>
+ <param name="seachTag">like: td</param>
+ <param name="searchTagValue">First Name:</param>
+ <param name="nextTagName">like: td</param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.ImageDB.StringToImage(System.String)">
+ <summary>
+ 从string convert to Bitmap。用法 PictureBox2.Image =ImageDB.StringToImage(string1)
+ </summary>
+ <param name="base64String"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.ImageDB.ByteToImage(System.Byte[])">
+ <summary>
+ 
+ </summary>
+ <param name="myByte"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.SQLDB.LoadDataTableBySqlString(System.String,System.Data.SqlClient.SqlConnection,System.String@)">
+ <summary>
+ Single use. Command disposed after this;return nothing if error found
+ </summary>
+ <param name="strSql"></param>
+ <param name="oConn">must provide a connection</param>
+ <param name="errorMsg">optional ref, if not nothing or missing, will return this error for futher use</param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.SQLDB.LoadDatatableByDataReader(System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlConnection,System.String@)">
+ <summary>
+ Single use. Command will dispose. Load a datatable by using datareader, both CommandText and StoredProcedure.
+ </summary>
+ <param name="myCommand"></param>
+ <param name="oConn"></param>
+ <param name="errorMsg"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.SQLDB._LoadDatatableByDataReaderInTrans(System.Data.SqlClient.SqlCommand)">
+ <summary>
+ Use this in transaction or multiple command. All parameters, connection or error provide or handle outside of this function.
+ </summary>
+ <param name="myCommand"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.SQLDB.LoadDataSetBySP(System.String,System.String[],System.Object[],System.Data.SqlClient.SqlConnection,System.String@)">
+ <summary>
+ 
+ </summary>
+ <param name="spName">Stored procedure name, no []</param>
+ <param name="paraNames">Stored procedure parameter names</param>
+ <param name="paraValues">Stored procedure values, object</param>
+ <param name="oConn"></param>
+ <param name="errorMsg">can ingore or return error message</param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.SQLDB.ExecCommandWithoutAffectedrowTest(System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlConnection,System.String@)">
+ <summary>
+ Singl use.Command dispose. No effective row count back;can return error message if errMsg is not nothing;Work regular command or Storeprocedure.
+ </summary>
+ <param name="myCommand">default is CommandText, can be stored procedure</param>
+ <param name="oConn">must provide</param>
+ <param name="errMsg">optional</param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.SQLDB.ExecCommandWithAffectedrowTest(System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlConnection,System.Int32,System.String@)">
+ <summary>
+ 2017-05-18:Singl use.Command dispose. Must provide effected rows count;can return error message if errMsg is not nothing;Work regular command .
+ </summary>
+ <param name="myCommand">default is CommandText, can be stored procedure</param>
+ <param name="oConn">must provide</param>
+ <param name="errMsg">optional</param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.SQLDB.LoadScalarByString(System.String,System.Data.SqlClient.SqlConnection,System.String@)">
+ <summary>
+ return first object from this command string. If errorMsg found. still return nothing, but need review
+ </summary>
+ <param name="strSql"></param>
+ <param name="oConn"></param>
+ <param name="errorMsg"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.SQLDB.SelectObjectFromStoredProcedure(System.String,System.String[],System.Object[],System.Data.SqlClient.SqlConnection,System.String@)">
+ <summary>
+ Get object return from simple stored procedure select.
+ </summary>
+ <param name="spName"></param>
+ <param name="parameterNames"></param>
+ <param name="parameterValues"></param>
+ <param name="oConn"></param>
+ <param name="errorMsg"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.SQLDB.ExecStoredProcedure(System.String,System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlConnection,System.String@)">
+ <summary>
+ 2017-05-08:not use in trans.Not test affected rows.
+ </summary>
+ <param name="spName">Store procedure name</param>
+ <param name="myCommand">must provide parameters</param>
+ <param name="oConn">must use a new connection</param>
+ <param name="errorMsg">use or not use error message</param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.SQLDB.ExecStoredProcedureToDataTable1(System.String,System.Data.SqlClient.SqlCommand,System.String@,System.Data.SqlClient.SqlConnection)">
+ <summary>
+ 用于test 时，提供myConn。如果是新command，不用设connection或者设open connection
+ </summary>
+ <param name="spName"></param>
+ <param name="myCommand"></param>
+ <param name="errorMsg"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.SQLDB.ExecStoredProcedureScalar(System.String,System.Data.SqlClient.SqlCommand)">
+ <summary>
+ ExecuteScalar will return an object value, only for  non trasnsaction. Sample spName=sp_Epicor_IsEpicorOrderExistedInSofiByOrderNumPackNum;
+ </summary>
+ <param name="spName"></param>
+ <param name="myCommand">Only use SOFI connection</param>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.SQLDB.ExecStoredProcedureScalarByConnection(System.String,System.String[],System.Object[],System.Data.SqlClient.SqlConnection,System.String)">
+ <summary>
+ ExecuteScalar will return a value, for both transaction or non trasnsaction. Command must include parameters
+ </summary>
+ <param name="spName"></param>
+ <param name="paraNames"></param>
+ <param name="parmValues"></param>
+ <param name="oConn"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.SQLDB.ExecStoredProcedureScalar(System.String,System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlConnection,System.String@)">
+ <summary>
+ Need pre set connection
+ </summary>
+ <param name="spName"></param>
+ <param name="myCommand"></param>
+ <param name="oConn"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.SQLDB.UpdateMultiFieldsByMultiKeys(System.String,System.String[],System.Object[],System.String[],System.Object[],System.Data.SqlClient.SqlConnection,System.Boolean,System.Int32,System.String@)">
+ <summary>
+ Update a table with Keys and columns. Can test affected rows. not use in transaction
+ </summary>
+ <param name="tableName"></param>
+ <param name="columnNames"></param>
+ <param name="columnValues"></param>
+ <param name="keyNames"></param>
+ <param name="keyValues"></param>
+ <param name="oConn"></param>
+ <param name="isCountAffectedRows"></param>
+ <param name="affectedRows"></param>
+ <param name="errorMsg"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.SQLDB._UpdateMultiFieldsByMultiKeys(System.Data.SqlClient.SqlCommand,System.String,System.String[],System.Object[],System.String[],System.Object[],System.Boolean,System.Int32,System.String@)">
+ <summary>
+ use in trans update
+ </summary>
+ <param name="myCommand"></param>
+ <param name="tableName"></param>
+ <param name="columnNames"></param>
+ <param name="columnValues"></param>
+ <param name="keyNames"></param>
+ <param name="keyValues"></param>
+ <param name="isCountAffectedRows"></param>
+ <param name="affectedRows"></param>
+ <param name="errorMsg"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.SQLDB._DeleteByMultiKeys(System.Data.SqlClient.SqlCommand,System.String,System.String[],System.Object[],System.Boolean,System.Int32,System.String@)">
+ <summary>
+ in trans. count or not count affected rows
+ </summary>
+ <param name="myCommand"></param>
+ <param name="tableName"></param>
+ <param name="keyNames"></param>
+ <param name="keyValues"></param>
+ <param name="isCountAffectedRows"></param>
+ <param name="affectedRows"></param>
+ <param name="errorMsg"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.UPSDB.CountryNameToCountryCode(System.String)">
+ <summary>
+ return two letter UPS country code, like US,CA,PR,CN. only covert US, Canada, PUERTO RICO,China, other country return same input country name
+ </summary>
+ <param name="countryName"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.WebDB.GetResponseFromWeb(System.String,System.String)">
+ <summary>
+ Send a request to website, get response back
+ </summary>
+ <param name="webAddress"></param>
+ <param name="request"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.XmlDB.GetFirstXMLValue(System.String,System.String)">
+ <summary>
+ ShipmentConfirmResponse/ShipmentDigest
+ </summary>
+ <param name="xmlText"></param>
+ <param name="nodeName">like ShipmentConfirmResponse/ShipmentDigest</param>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.XmlDB.GetNodeValueFirst(System.String,System.String)">
+ <summary>
+ Sample node = "/RatingServiceSelectionResponse/RatedShipment/BillingWeight/Weight"
+ </summary>
+ <param name="response"></param>
+ <param name="node"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.XmlDB.GetNodeValueLists(System.String,System.String)">
+ <summary>
+ sample: node = "/RatingServiceSelectionResponse/RatedShipment/RatedPackage/TotalCharges/MonetaryValue"
+ </summary>
+ <param name="response"></param>
+ <param name="node"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.XmlDB.AddChildNodeByXPath(System.Xml.XmlDocument,System.String,System.String)">
+ <summary>
+ 2017-05-01:Must have last node inner text.
+ 2017-04-27: If parent node not exist, add parent node first. the last node can add inner text
+ </summary>
+ <param name="doc">XmlDocument</param>
+ <param name="xPath">xpath node need to be add, format /Shipment/Address/AddressCode</param>
+ <param name="innerText">AddressCode inner text, can empty</param>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.XmlDB.AddChildNodeToParentNodeByXPath(System.Xml.XmlDocument,System.String,System.String,System.String)">
+ <summary>
+ 2017-05-02:Parent x Path allow multiple value,Child path first node is a new node even there may already have a same name child node. for ex: already have /Shipment/Package, add second /Package
+ </summary>
+ <param name="doc">xmlDocument</param>
+ <param name="parentXPath">Parent node xPath: /ShipmentConfirmRequest/Shipment/Package/</param>
+ <param name="childPath">like: /ReferenceNumber/Value</param>
+ <param name="innerText">this node inner text, must not empty</param>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.XmlDB.FindNextFirstSearchNodeInnerTextByPreviousNodeNameAndValue(System.String,System.String,System.String,System.String)">
+ <summary>
+ sample: xmlDoc850, "N101", "ST", "N301". already know previous node name and inner text,find a the first node after this node (may not be the immediate next) by this new node name,example: Know N101=ST, find N301 innertext
+ </summary>
+ <param name="xmlText"></param>
+ <param name="preNodeTagName"></param>
+ <param name="preNodeInnerText"></param>
+ <param name="findNodeName"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.XmlDB.FindPreNodeInnerTextByAfterNodeNameAndValue(System.String,System.String,System.String,System.String)">
+ <summary>
+ exp: L11*174591*BM, L1102=BM, find L1101 value. Only work for first pre node
+ </summary>
+ <param name="xmlText"></param>
+ <param name="afterNodeTagName"></param>
+ <param name="afterNodeInnerText"></param>
+ <param name="findNodeName"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.Escape.EscapeSQLLike(System.String)">
+ <summary>
+ Escape SQL reserved char for LIKE, include '[%_*. The star * escape works both in SQL and datatable filter
+ </summary>
+ <param name="input"></param>
+ <returns></returns>
+</member>
+<member name="M:MyDll.PMath.O2DateTableFieldToClass(System.Object)">
+ <summary>
+ Date type value from SQL table field/data reader/data table/datagridview date cell,
+ either equal to a date or isdbnull.
+ </summary>
+ <param name="input">can be SQL table field/data reader/data table/datagridview date cell</param>
+ <returns>a correct date or 12:00:00: AM</returns>
+ <remarks></remarks>
+</member>
+<member name="M:MyDll.PMath.PhoneToDigit(System.String)">
+ <summary>
+ Get phone text only digit part. UPS require this part must 10-15 in length
+ </summary>
+ <param name="obj"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+</members>
+</doc>

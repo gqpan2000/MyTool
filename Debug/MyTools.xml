@@ -1,0 +1,58 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+MyTools
+</name>
+</assembly>
+<members>
+<member name="M:MyTools.ModMain.MyAccessConnectString">
+	<summary>
+ Connection string for Access database,
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:MyTools.Form1.btnClasstoText_Click(System.Object,System.EventArgs)">
+	<summary>
+ create SQL insert string with parameter
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:MyTools.Form1.btnTexttoClass_Click(System.Object,System.EventArgs)">
+	<summary>
+ Create SQL Update string
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:MyTools.Form1.Button3_Click(System.Object,System.EventArgs)">
+	<summary>
+ SQL Parameter List
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:MyTools.Form1.Button5_Click(System.Object,System.EventArgs)">
+	<summary>
+ Compare two class, get changed update string
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="P:MyTools.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:MyTools.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:MyTools.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>
