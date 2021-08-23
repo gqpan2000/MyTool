@@ -62,13 +62,6 @@
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MyDll">
-      <HintPath>..\..\07 VB2015\VB2015\MyDll\bin\Debug\MyDll.dll</HintPath>
-    </Reference>
-    <Reference Include="PctlLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\MyDLL\pCtlLib\pCtlLib\bin\Debug\PctlLib.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
